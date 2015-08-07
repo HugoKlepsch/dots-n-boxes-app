@@ -1,20 +1,24 @@
 package hugra.dotsnboxes;
 
-import android.app.ActionBar;
+
 import android.app.Activity;
+import android.app.Fragment;
 import android.app.FragmentTransaction;
+import android.net.Uri;
 import android.os.Bundle;
-import android.support.design.widget.TabLayout;
-import android.support.v4.view.ViewPager;
+
 import android.view.Menu;
 import android.view.MenuItem;
 
-public class LoginActivity extends Activity {
+public class LoginActivity extends Activity implements LogInFrag.OnFragmentInteractionListener{
+    private static final int CONTENT_VIEW_ID = 10101010;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+
 
     }
 
@@ -38,5 +42,11 @@ public class LoginActivity extends Activity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+
+    @Override
+    public void onFragmentInteraction(Uri uri) {
+
     }
 }

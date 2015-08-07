@@ -1,0 +1,51 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             xmlns:tools="http://schemas.android.com/tools"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             tools:context="hugra.dotsnboxes.LogInFrag">
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center_horizontal|top">
+
+        <EditText
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/editText"
+            android:layout_below="@+id/textView"
+            android:layout_alignStart="@+id/editText2"
+            android:inputType="text"/>
+
+        <EditText
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/editText2"
+            android:layout_below="@+id/textView2"
+            android:layout_centerHorizontal="true"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="@string/logInFrag_Username"
+            android:id="@+id/textView"
+            android:layout_marginTop="124dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignStart="@+id/editText"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="@string/logInFrag_Password"
+            android:id="@+id/textView2"
+            android:layout_below="@+id/editText"
+            android:layout_alignStart="@+id/editText2"
+            android:layout_marginTop="104dp"/>
+
+    </RelativeLayout>
+
+</FrameLayout>

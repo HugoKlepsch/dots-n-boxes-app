@@ -41,4 +41,18 @@
 
 
     </RelativeLayout>
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <fragment
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:name="hugra.dotsnboxes.LogInFrag"
+            tools:layout="@layout/fragment_log_in"/>
+        <fragment
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
 </RelativeLayout>

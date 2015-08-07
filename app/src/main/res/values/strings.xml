@@ -6,4 +6,10 @@
 
     <string name="logInTab">Log in</string>
     <string name="signUpTab">Sign up</string>
+    
+    <string name="logInFrag_Username">UserName</string>
+    <string name="logInFrag_Password">Password</string>
+
+<!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
