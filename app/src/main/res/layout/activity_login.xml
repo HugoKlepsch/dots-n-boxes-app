@@ -15,6 +15,7 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true">
         <RadioGroup
+            android:id="@+id/loginActivity_logInSignUpRadioGroup"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
@@ -22,7 +23,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/logInTab"
-                android:id="@+id/radioButton"
+                android:id="@+id/loginActivity_LogInRadioButton"
                 android:layout_centerVertical="true"
                 android:layout_alignParentStart="true"
                 android:checked="true"/>
@@ -31,7 +32,7 @@
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/signUpTab"
-                android:id="@+id/radioButton2"
+                android:id="@+id/loginActivity_SignUpRadioButton"
                 android:layout_alignParentTop="true"
                 android:layout_alignParentEnd="true"
                 android:checked="false"
@@ -41,18 +42,14 @@
 
 
     </RelativeLayout>
+
     <LinearLayout
+        android:id="@+id/loginActivity_FragmentContainer"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
-        <fragment
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:name="hugra.dotsnboxes.LogInFrag"
-            tools:layout="@layout/fragment_log_in"/>
-        <fragment
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+
+
 
     </LinearLayout>
 </RelativeLayout>
