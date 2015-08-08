@@ -7,46 +7,92 @@
     <!-- TODO: Update blank fragment layout -->
 
     <RelativeLayout
-        android:id="@+id/logInFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_gravity="center_horizontal|top">
+        android:layout_gravity="top|center_horizontal">
 
-        <EditText
-            android:layout_width="300dp"
+        <Button
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/editText"
-            android:layout_below="@+id/textView"
-            android:layout_alignStart="@+id/editText2"
-            android:inputType="text"/>
-
-        <EditText
-            android:layout_width="300dp"
-            android:layout_height="wrap_content"
-            android:id="@+id/editText2"
-            android:layout_below="@+id/textView2"
+            android:text="@string/logInTab"
+            android:id="@+id/button2"
+            android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"/>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="@string/logInFrag_Username"
-            android:id="@+id/textView"
-            android:layout_marginTop="124dp"
+        <ScrollView
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:id="@+id/scrollView2"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center_horizontal|bottom"
+            android:fillViewport="false"
+            android:layout_above="@+id/button2"
             android:layout_alignParentTop="true"
-            android:layout_alignStart="@+id/editText"/>
+            android:layout_alignParentBottom="false">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="@string/logInFrag_Password"
-            android:id="@+id/textView2"
-            android:layout_below="@+id/editText"
-            android:layout_alignStart="@+id/editText2"
-            android:layout_marginTop="104dp"/>
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical|center_horizontal">
+
+                <RelativeLayout
+                    android:id="@+id/relativeLayout2"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_gravity="center"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_above="@+id/button2">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:text="@string/logInFrag_Username"
+                        android:id="@+id/textView"
+                        android:layout_marginTop="0dp"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignStart="@+id/LogInFrag_PasswordBox"/>
+
+                    <EditText
+                        android:layout_width="300dp"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/LogInFrag_PasswordBox"
+                        android:layout_below="@+id/textView2"
+                        android:layout_centerHorizontal="true"
+                        android:inputType="textPassword"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:text="@string/logInFrag_Password"
+                        android:id="@+id/textView2"
+                        android:layout_below="@+id/LogInFrag_UsernameBox"
+                        android:layout_alignStart="@+id/LogInFrag_UsernameBox"
+                        android:layout_marginTop="37dp"/>
+
+                    <EditText
+                        android:layout_width="300dp"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/LogInFrag_UsernameBox"
+                        android:inputType="text|textVisiblePassword"
+                        android:layout_below="@+id/textView"
+                        android:layout_alignStart="@+id/textView"/>
+                </RelativeLayout>
+            </LinearLayout>
+        </ScrollView>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentBottom="false">
+        </LinearLayout>
 
     </RelativeLayout>
-
 </FrameLayout>

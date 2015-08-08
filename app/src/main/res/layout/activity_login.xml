@@ -13,7 +13,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true">
+        android:layout_centerHorizontal="true"
+        android:id="@+id/relativeLayout3">
         <RadioGroup
             android:id="@+id/loginActivity_logInSignUpRadioGroup"
             android:layout_width="wrap_content"
@@ -26,7 +27,10 @@
                 android:id="@+id/loginActivity_LogInRadioButton"
                 android:layout_centerVertical="true"
                 android:layout_alignParentStart="true"
-                android:checked="true"/>
+                android:checked="true"
+
+
+                />
 
             <RadioButton
                 android:layout_width="fill_parent"
@@ -47,7 +51,10 @@
         android:id="@+id/loginActivity_FragmentContainer"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:layout_below="@+id/relativeLayout3"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true">
 
 
 

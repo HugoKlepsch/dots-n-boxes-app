@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <style name="AppTheme" parent="android:Theme.Material.Light">
+    <style name="AppTheme" parent="android:ThemeOverlay.Material">
+        <item name="android:angle">15</item>
+        <item name="android:typeface">monospace</item>
+        <item name="android:colorAccent">#ff921e</item>
+        <item name="android:colorPrimary">#ff921e</item>
+
     </style>
 </resources>
