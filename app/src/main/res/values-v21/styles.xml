@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <style name="AppTheme" parent="android:ThemeOverlay.Material">
+    <style name="AppTheme" parent="android:Theme.Material">
         <item name="android:angle">15</item>
         <item name="android:typeface">monospace</item>
         <item name="android:colorAccent">#ff921e</item>
