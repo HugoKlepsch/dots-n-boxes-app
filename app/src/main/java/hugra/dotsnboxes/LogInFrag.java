@@ -4,9 +4,11 @@ import android.app.Activity;
 import android.net.Uri;
 import android.os.Bundle;
 import android.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 
 /**
@@ -17,7 +19,7 @@ import android.view.ViewGroup;
  * Use the {@link LogInFrag#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class LogInFrag extends Fragment {
+public class LogInFrag extends Fragment implements View.OnClickListener{
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -28,6 +30,8 @@ public class LogInFrag extends Fragment {
     private String mParam2;
 
     private OnFragmentInteractionListener mListener;
+
+    private Button logInButton;
 
     /**
      * Use this factory method to create a new instance of
@@ -63,8 +67,11 @@ public class LogInFrag extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        View viewToReturn = inflater.inflate(R.layout.fragment_log_in, container, false);
+        logInButton = (Button) getActivity().findViewById(R.id.LogInFrag_LogInButton);
+        logInButton.setOnClickListener(this);
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_log_in, container, false);
+        return viewToReturn;
     }
 
     // TODO: Rename method, update argument and hook method into UI event
@@ -91,6 +98,11 @@ public class LogInFrag extends Fragment {
         mListener = null;
     }
 
+    @Override
+    public void onClick(View v) {
+        Log.d("onclickhandler", (v == logInButton) ? "true" : "false");
+    }
+
     /**
      * This interface must be implemented by activities that contain this
      * fragment to allow an interaction in this fragment to be communicated
@@ -103,7 +115,10 @@ public class LogInFrag extends Fragment {
      */
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
-        public void onFragmentInteraction(Uri uri);
+        void onFragmentInteraction(Uri uri);
     }
+
+
+
 
 }

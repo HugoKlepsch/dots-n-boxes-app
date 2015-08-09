@@ -15,7 +15,7 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:text="@string/signUpTab"
-            android:id="@+id/button"
+            android:id="@+id/SignUpFrag_SignUpButton"
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"/>
 
@@ -26,7 +26,7 @@
             android:layout_centerHorizontal="true"
             android:layout_gravity="center_horizontal|bottom"
             android:fillViewport="false"
-            android:layout_above="@+id/button"
+            android:layout_above="@+id/SignUpFrag_SignUpButton"
             android:layout_alignParentTop="true"
             android:layout_alignParentBottom="false">
 
@@ -44,7 +44,7 @@
                     android:layout_centerVertical="true"
                     android:layout_alignParentTop="true"
                     android:layout_alignParentStart="true"
-                    android:layout_above="@+id/button">
+                    android:layout_above="@+id/SignUpFrag_SignUpButton">
 
                     <EditText
                         android:layout_width="300dp"

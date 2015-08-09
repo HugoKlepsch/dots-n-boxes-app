@@ -4,7 +4,7 @@
         <item name="android:angle">15</item>
         <item name="android:typeface">monospace</item>
         <item name="android:colorAccent">#ff921e</item>
-        <item name="android:colorPrimary">#ff921e</item>
+
 
     </style>
 </resources>

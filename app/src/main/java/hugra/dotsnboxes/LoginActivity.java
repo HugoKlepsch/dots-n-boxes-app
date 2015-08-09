@@ -4,11 +4,16 @@ package hugra.dotsnboxes;
 import android.app.Activity;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
+import android.content.DialogInterface;
 import android.net.Uri;
 import android.os.Bundle;
 
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
@@ -23,6 +28,14 @@ public class LoginActivity extends Activity implements LogInFrag.OnFragmentInter
     private LogInFrag logInFrag;
     private SignUpFrag signUpFrag;
 
+    private EditText logInUsernameEditText;
+    private EditText logInPasswordEditText;
+    private EditText signUpUsernameEditText;
+    private EditText signUpPasswordEditText;
+
+    private Button logInButton;
+    private Button signUpButton;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,6 +46,16 @@ public class LoginActivity extends Activity implements LogInFrag.OnFragmentInter
 
         logInFrag = new LogInFrag();
         signUpFrag = new SignUpFrag();
+
+        logInUsernameEditText = (EditText) findViewById(R.id.LogInFrag_UsernameBox);
+        logInPasswordEditText = (EditText) findViewById(R.id.LogInFrag_PasswordBox);
+        logInButton = (Button) findViewById(R.id.LogInFrag_LogInButton);
+
+
+        signUpUsernameEditText = (EditText) findViewById(R.id.SignUpFrag_UsernameBox);
+        signUpPasswordEditText = (EditText) findViewById(R.id.SignUpFrag_PasswordBox);
+        signUpButton = (Button) findViewById(R.id.SignUpFrag_SignUpButton);
+
 
         fragmentTransaction.add(R.id.loginActivity_FragmentContainer, logInFrag);
         fragmentTransaction.commit();
@@ -52,10 +75,12 @@ public class LoginActivity extends Activity implements LogInFrag.OnFragmentInter
                     fragTransaction.remove(signUpFrag);
                     fragTransaction.add(R.id.loginActivity_FragmentContainer, logInFrag);
                     fragTransaction.commit();
+
                 } else {
                     fragTransaction.remove(logInFrag);
                     fragTransaction.add(R.id.loginActivity_FragmentContainer, signUpFrag);
                     fragTransaction.commit();
+
                 }
 
             }
@@ -90,4 +115,14 @@ public class LoginActivity extends Activity implements LogInFrag.OnFragmentInter
     public void onFragmentInteraction(Uri uri) {
 
     }
+
+    class ClickHandler implements View.OnClickListener{
+
+        @Override
+        public void onClick(View v) {
+            Log.d("onclickhandler", (v == logInButton) ? "true" : "false");
+        }
+    }
+
+
 }
