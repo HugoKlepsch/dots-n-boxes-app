@@ -1,4 +1,6 @@
 <resources>
+    <integer name="defaultPort">7070</integer>
+    <string name="defaultIP">198.27.14.217</string>
     <string name="app_name">Dots N Boxes</string>
 
     <string name="hello_world">Hello world!</string>
