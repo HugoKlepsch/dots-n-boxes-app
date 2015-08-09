@@ -6,7 +6,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 public class Lobby extends AppCompatActivity {
-    public boolean stayAlive = true;
+    public static boolean stayAlive = true;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
