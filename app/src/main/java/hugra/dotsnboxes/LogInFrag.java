@@ -102,6 +102,8 @@ public class LogInFrag extends Fragment implements View.OnClickListener{
     @Override
     public void onClick(View v) {
         Log.d("onclickhandler", (v == logInButton) ? "true" : "false");
+
+
     }
 
     /**
