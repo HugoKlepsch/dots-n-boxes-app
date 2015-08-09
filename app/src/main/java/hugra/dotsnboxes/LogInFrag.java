@@ -67,9 +67,10 @@ public class LogInFrag extends Fragment implements View.OnClickListener{
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View viewToReturn = inflater.inflate(R.layout.fragment_log_in, container, false);
-        logInButton = (Button) getActivity().findViewById(R.id.LogInFrag_LogInButton);
-//        logInButton.setOnClickListener(this);
+        View viewToReturn = inflater.inflate(R.layout.fragment_log_in, null);
+        logInButton = (Button) viewToReturn.findViewById(R.id.LogInFrag_LogInButton);
+        logInButton.setOnClickListener(this);
+//        logInButton.setText("dankmemes");
         // Inflate the layout for this fragment
         return viewToReturn;
     }
