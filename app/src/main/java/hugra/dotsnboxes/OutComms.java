@@ -1,11 +1,11 @@
 package hugra.dotsnboxes;
 
-import android.app.Notification;
+
 import android.content.res.Resources;
 
 import java.io.IOException;
 import java.io.ObjectOutputStream;
-import java.net.Inet4Address;
+
 import java.net.Socket;
 
 import sharedPackages.ActionRequest;
@@ -17,24 +17,28 @@ import sharedPackages.User;
 public class OutComms extends Thread {
     private Socket csSock;
     private ObjectOutputStream csStream;
+    public InComms inComms;
+    private String username;
+    private String password;
 
-    public OutComms(){
+    public OutComms(String username, String password){
         Resources res = Resources.getSystem();
         try {
-            csSock = new Socket(res.getString(R.string.defaultIP), res.getInteger(R.integer
-                    .defaultPort));
+            csSock = new Socket(res.getString(R.string.defaultIP), res.getInteger(R.integer.defaultPort));
+            inComms = new InComms(csSock);
         } catch (IOException e) {
             e.printStackTrace();
         }
 
+        this.username = username;
+        this.password = password;
 
     }
 
     public void run(){
         try {
             csStream = new ObjectOutputStream(csSock.getOutputStream());
-            csStream.writeObject(new ActionRequest(ActionRequest.CS_CONNECT, new User(null, null)
-            )); //TODO FIX THIS
+            csStream.writeObject(new ActionRequest(ActionRequest.CS_CONNECT, new User(username, password)));
             while(Lobby.stayAlive){
                 csStream.writeObject(new ActionRequest(ActionRequest.CS_USERLIST));
                 csStream.flush();
