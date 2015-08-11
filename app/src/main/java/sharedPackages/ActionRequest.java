@@ -11,7 +11,10 @@ package sharedPackages;
 import java.io.Serializable;
 import java.util.Vector;
 
-
+/**
+ * @author hugo
+ *
+ */
 public class ActionRequest implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
@@ -32,6 +35,8 @@ public class ActionRequest implements Serializable {
 	//send user list
 	public static final int SC_USERLIST = 8;
 	public static final int CS_CREATE_ACCOUNT = 9;
+	public static final int SC_LOGIN_SUCCESS = 10;
+	public static final int SC_LOGIN_FAILURE = 11;
 	
 	private int action;
 	private User user;
