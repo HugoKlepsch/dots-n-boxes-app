@@ -4,13 +4,27 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
+
+import java.util.Vector;
+
+import sharedPackages.User;
 
 public class Lobby extends AppCompatActivity {
     public static boolean stayAlive = true;
+    private TextView userListDisplay;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lobby);
+        userListDisplay = (TextView) findViewById(R.id.activityLobby_UserListDisplay);
+    }
+
+    public void updateUserListDisplay(Vector<User> userList){
+        for(int i = 0;i<userList.size();i++){
+            userListDisplay.append(userList.get(i).getUsername());
+            userListDisplay.append("\n");
+        }
     }
 
     @Override

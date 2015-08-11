@@ -20,18 +20,20 @@ public class OutComms extends Thread {
     public InComms inComms;
     private String username;
     private String password;
+    private Lobby activityReference;
 
-    public OutComms(String username, String password){
+    public OutComms(String username, String password, Lobby activityReference){
         Resources res = Resources.getSystem();
         try {
             csSock = new Socket(res.getString(R.string.defaultIP), res.getInteger(R.integer.defaultPort));
-            inComms = new InComms(csSock);
+            inComms = new InComms(csSock, activityReference);
         } catch (IOException e) {
             e.printStackTrace();
         }
 
         this.username = username;
         this.password = password;
+        this.activityReference = activityReference;
 
     }
 

@@ -10,17 +10,20 @@ public class Game extends Thread {
     Lobby activityReference;
     String username;
     String password;
+    OutComms outComms;
 
     public Game(Lobby activityReference, String username, String password){
         this.activityReference = activityReference;
         this.username = username;
         this.password = password;
-        OutComms outComms = new OutComms(username, password); //TODO finish this
+        outComms = new OutComms(username, password, activityReference); //TODO finish this
 
 
     }
 
     public void run(){
+        outComms.start();
+
 
 
     }
