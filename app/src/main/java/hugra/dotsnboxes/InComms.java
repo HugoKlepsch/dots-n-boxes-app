@@ -27,10 +27,6 @@ public class InComms extends Thread {
             ActionRequest actionRequest;
             while(Lobby.stayAlive){
                 actionRequest = (ActionRequest)scStream.readObject();
-                switch (actionRequest.getAction()){
-                    case ActionRequest.SC_USERLIST: //TODO update
-                        break;
-                }
 
             }
 
