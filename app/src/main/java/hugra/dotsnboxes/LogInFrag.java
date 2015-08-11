@@ -1,6 +1,7 @@
 package hugra.dotsnboxes;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.app.Fragment;
@@ -8,7 +9,9 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebView;
 import android.widget.Button;
+import android.widget.EditText;
 
 
 /**
@@ -32,6 +35,9 @@ public class LogInFrag extends Fragment implements View.OnClickListener{
     private OnFragmentInteractionListener mListener;
 
     private Button logInButton;
+    private EditText usernameField, passwordField;
+
+    public static String username, password;
 
     /**
      * Use this factory method to create a new instance of
@@ -70,6 +76,8 @@ public class LogInFrag extends Fragment implements View.OnClickListener{
         View viewToReturn = inflater.inflate(R.layout.fragment_log_in, null);
         logInButton = (Button) viewToReturn.findViewById(R.id.LogInFrag_LogInButton);
         logInButton.setOnClickListener(this);
+        usernameField = (EditText) viewToReturn.findViewById(R.id.LogInFrag_UsernameBox);
+        passwordField = (EditText) viewToReturn.findViewById(R.id.LogInFrag_PasswordBox);
 //        logInButton.setText("dankmemes");
         // Inflate the layout for this fragment
         return viewToReturn;
@@ -102,7 +110,9 @@ public class LogInFrag extends Fragment implements View.OnClickListener{
     @Override
     public void onClick(View v) {
         Log.d("onclickhandler", (v == logInButton) ? "true" : "false");
-
+        this.username = usernameField.getText().toString();
+        this.password = passwordField.getText().toString();
+        getActivity().startActivity(new Intent(getActivity(), Lobby.class));
 
     }
 

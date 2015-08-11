@@ -1,8 +1,12 @@
 package hugra.dotsnboxes;
 
+
+import android.content.Context;
+import android.widget.Toast;
+
 import java.io.IOException;
 import java.io.ObjectInputStream;
-import java.net.InetAddress;
+
 import java.net.Socket;
 import java.util.Vector;
 
@@ -28,6 +32,7 @@ public class InComms extends Thread {
 
     public void run(){
         try {
+            Context context = activityReference.getApplicationContext();
             scStream = new ObjectInputStream(scSock.getInputStream());
             ActionRequest actionRequest;
             while(Lobby.stayAlive){
@@ -37,6 +42,17 @@ public class InComms extends Thread {
                         userList = actionRequest.getUserList();
                         activityReference.updateUserListDisplay(userList);
                         break;
+
+                    case(ActionRequest.SC_LOGIN_FAILURE):
+                        Toast.makeText(context, "Login failure!", Toast.LENGTH_LONG).show();
+
+                        break;
+
+                    case(ActionRequest.SC_LOGIN_SUCCESS):
+                        Toast.makeText(context, "Login success!", Toast.LENGTH_LONG).show();
+
+                        break;
+
                 }
 
             }

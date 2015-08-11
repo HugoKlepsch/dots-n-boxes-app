@@ -1,5 +1,6 @@
 package hugra.dotsnboxes;
 
+import android.app.Activity;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -10,7 +11,7 @@ import java.util.Vector;
 
 import sharedPackages.User;
 
-public class Lobby extends AppCompatActivity {
+public class Lobby extends Activity {
     public static boolean stayAlive = true;
     private TextView userListDisplay;
     @Override
@@ -18,6 +19,8 @@ public class Lobby extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lobby);
         userListDisplay = (TextView) findViewById(R.id.activityLobby_UserListDisplay);
+        Game game = new Game(this, LogInFrag.username, LogInFrag.password);
+        game.start();
     }
 
     public void updateUserListDisplay(Vector<User> userList){
