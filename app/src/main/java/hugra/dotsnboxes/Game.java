@@ -1,3 +1,5 @@
+package hugra.dotsnboxes;
+
 import hugra.dotsnboxes.Lobby;
 import hugra.dotsnboxes.OutComms;
 
@@ -9,9 +11,12 @@ public class Game extends Thread {
     String username;
     String password;
 
-    public Game(Lobby activityReference){
+    public Game(Lobby activityReference, String username, String password){
         this.activityReference = activityReference;
-        OutComms outComms = new OutComms(); //TODO keep coding this, it's unfinished.
+        this.username = username;
+        this.password = password;
+        OutComms outComms = new OutComms(username, password); //TODO finish this
+
 
     }
 

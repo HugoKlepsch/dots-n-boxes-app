@@ -37,6 +37,7 @@ public class OutComms extends Thread {
 
     public void run(){
         try {
+            inComms.start();
             csStream = new ObjectOutputStream(csSock.getOutputStream());
             csStream.writeObject(new ActionRequest(ActionRequest.CS_CONNECT, new User(username, password)));
             while(Lobby.stayAlive){
