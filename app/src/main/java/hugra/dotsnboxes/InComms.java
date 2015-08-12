@@ -35,7 +35,14 @@ public class InComms extends Thread {
 
     public void run(){
         try {
-            Context context = activityReference.getApplicationContext();
+            final Context context = activityReference.getApplicationContext();
+            activityReference.runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    Toast.makeText(context, "Test toast", Toast.LENGTH_LONG).show();
+                }
+            });
+
             scStream = new ObjectInputStream(scSock.getInputStream());
             ActionRequest actionRequest;
             while(Lobby.stayAlive){
@@ -44,19 +51,37 @@ public class InComms extends Thread {
                     case(ActionRequest.SC_USERLIST):
                         userList = actionRequest.getUserList();
                         Log.d("in incomms sc_userlist", "inside the case for sc_userlist");
-                        activityReference.updateUserListDisplay(userList);
+                        activityReference.runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                activityReference.updateUserListDisplay(userList);
+                            }
+                        });
+
                         break;
 
                     case(ActionRequest.SC_LOGIN_FAILURE):
                         hasConnected = true;
-                        Toast.makeText(context, "Login failure!", Toast.LENGTH_LONG).show();
+                        activityReference.runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                Toast.makeText(context, "Login failure!", Toast.LENGTH_LONG).show();
+                            }
+                        });
+
                         Log.d("in incomms sc_login_f", "inside the case for sc_login_failure");
 
                         break;
 
                     case(ActionRequest.SC_LOGIN_SUCCESS):
                         hasConnected = true;
-                        Toast.makeText(context, "Login success!", Toast.LENGTH_LONG).show();
+                        activityReference.runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                Toast.makeText(context, "Login success!", Toast.LENGTH_LONG).show();
+                            }
+                        });
+
                         Log.d("in incomms sc_login_s", "inside the case for sc_login_success");
 
 
