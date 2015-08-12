@@ -16,7 +16,7 @@ public class Game extends Thread {
         this.activityReference = activityReference;
         this.username = username;
         this.password = password;
-        outComms = new OutComms(username, password, activityReference); //TODO finish this
+        outComms = new OutComms(username, password, activityReference);
 
 
     }
