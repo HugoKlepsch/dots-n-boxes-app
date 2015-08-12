@@ -48,9 +48,11 @@ public class OutComms extends Thread {
             }
             inComms.start();
             csStream = new ObjectOutputStream(csSock.getOutputStream());
-            csStream.writeObject(new ActionRequest(ActionRequest.CS_CONNECT, new User(username, password)));
-            csStream.flush();
-            Thread.sleep(1000);
+            while (!inComms.hasConnected) {
+                csStream.writeObject(new ActionRequest(ActionRequest.CS_CONNECT, new User(username, password)));
+                csStream.flush();
+                Thread.sleep(300);
+            }
             while(Lobby.stayAlive){
                 csStream.writeObject(new ActionRequest(ActionRequest.CS_USERLIST));
                 csStream.flush();

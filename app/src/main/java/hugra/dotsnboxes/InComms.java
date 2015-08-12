@@ -23,10 +23,12 @@ public class InComms extends Thread {
     private ObjectInputStream scStream;
     public static Vector<User> userList;
     private Lobby activityReference;
+    public boolean hasConnected;
 
     public InComms(Socket socket, Lobby activityReference) throws IOException{
         this.scSock = socket;
         this.activityReference = activityReference;
+        hasConnected = false;
 
 
     }
@@ -46,12 +48,14 @@ public class InComms extends Thread {
                         break;
 
                     case(ActionRequest.SC_LOGIN_FAILURE):
+                        hasConnected = true;
                         Toast.makeText(context, "Login failure!", Toast.LENGTH_LONG).show();
                         Log.d("in incomms sc_login_f", "inside the case for sc_login_failure");
 
                         break;
 
                     case(ActionRequest.SC_LOGIN_SUCCESS):
+                        hasConnected = true;
                         Toast.makeText(context, "Login success!", Toast.LENGTH_LONG).show();
                         Log.d("in incomms sc_login_s", "inside the case for sc_login_success");
 
