@@ -2,6 +2,7 @@ package hugra.dotsnboxes;
 
 
 import android.content.Context;
+import android.util.Log;
 import android.widget.Toast;
 
 import java.io.IOException;
@@ -40,6 +41,7 @@ public class InComms extends Thread {
                 switch(actionRequest.getAction()){
                     case(ActionRequest.SC_USERLIST):
                         userList = actionRequest.getUserList();
+                        Log.d("in incomms sc_userlist", "inside the case");
                         activityReference.updateUserListDisplay(userList);
                         break;
 
