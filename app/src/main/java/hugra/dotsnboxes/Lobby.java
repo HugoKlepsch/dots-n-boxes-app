@@ -24,9 +24,11 @@ public class Lobby extends Activity {
     }
 
     public void updateUserListDisplay(Vector<User> userList){
+        userListDisplay.setText("");
         for(int i = 0;i<userList.size();i++){
             userListDisplay.append(userList.get(i).getUsername());
             userListDisplay.append("\n");
+
         }
     }
 
