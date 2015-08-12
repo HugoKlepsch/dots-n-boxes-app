@@ -53,6 +53,7 @@ public class OutComms extends Thread {
             while(Lobby.stayAlive){
                 csStream.writeObject(new ActionRequest(ActionRequest.CS_USERLIST));
                 csStream.flush();
+                Log.d("in outcomms cs_userlist", "sent cs_userlsit");
                 Thread.sleep(1000); //TODO consider small rewrite so that it only requests a userlist when the user hits a button
             }
         } catch (IOException e) {

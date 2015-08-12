@@ -41,17 +41,20 @@ public class InComms extends Thread {
                 switch(actionRequest.getAction()){
                     case(ActionRequest.SC_USERLIST):
                         userList = actionRequest.getUserList();
-                        Log.d("in incomms sc_userlist", "inside the case");
+                        Log.d("in incomms sc_userlist", "inside the case for sc_userlist");
                         activityReference.updateUserListDisplay(userList);
                         break;
 
                     case(ActionRequest.SC_LOGIN_FAILURE):
                         Toast.makeText(context, "Login failure!", Toast.LENGTH_LONG).show();
+                        Log.d("in incomms sc_login_f", "inside the case for sc_login_failure");
 
                         break;
 
                     case(ActionRequest.SC_LOGIN_SUCCESS):
                         Toast.makeText(context, "Login success!", Toast.LENGTH_LONG).show();
+                        Log.d("in incomms sc_login_s", "inside the case for sc_login_success");
+
 
                         break;
 
