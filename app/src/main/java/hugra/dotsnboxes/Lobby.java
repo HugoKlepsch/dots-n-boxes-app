@@ -1,8 +1,10 @@
 package hugra.dotsnboxes;
 
 import android.app.Activity;
+import android.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
@@ -14,6 +16,8 @@ import sharedPackages.User;
 public class Lobby extends Activity {
     public static boolean stayAlive = true;
     private TextView userListDisplay;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,6 +34,9 @@ public class Lobby extends Activity {
             userListDisplay.append("\n");
 
         }
+        FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+
+        fragmentTransaction.commit();
     }
 
     @Override

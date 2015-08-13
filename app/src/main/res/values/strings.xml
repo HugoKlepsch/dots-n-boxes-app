@@ -18,6 +18,11 @@
     <string name="signUpFrag_Password">Password</string>
     <string name="signUpFrag_ConfirmPassword">Confirm password</string>
 
+    <string name="PlayerCardFrag_ProfileButton">Profile</string>
+    <string name="PlayerCardFrag_ChallengeButton">Challenge</string>
+    <string name="PlayerCardFrag_Username">Username</string>
+    <string name="PlayerCardFrag_GamesWonCount">Games Won</string>
+
 <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_lobby">Lobby</string>

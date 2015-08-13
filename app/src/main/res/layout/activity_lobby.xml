@@ -14,4 +14,23 @@
         android:layout_height="wrap_content"
         android:id="@+id/activityLobby_UserListDisplay" />
 
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:id="@+id/Lobby_ScrollView"
+        android:layout_below="@+id/activityLobby_UserListDisplay"
+        android:minHeight="200dp">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/Lobby_FragContainer"
+            android:layout_alignBottom="@+id/activityLobby_UserListDisplay"
+            android:layout_alignParentStart="true"
+            android:minHeight="200dp">
+
+        </LinearLayout>
+    </ScrollView>
+
 </RelativeLayout>
