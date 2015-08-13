@@ -2,20 +2,25 @@ package hugra.dotsnboxes;
 
 import android.app.Activity;
 import android.app.FragmentTransaction;
-import android.support.v7.app.AppCompatActivity;
+import android.net.Uri;
+
 import android.os.Bundle;
-import android.util.Log;
+
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ScrollView;
 import android.widget.TextView;
+
 
 import java.util.Vector;
 
 import sharedPackages.User;
 
-public class Lobby extends Activity {
+public class Lobby extends Activity implements TestPlayerCardFrag.OnFragmentInteractionListener{
     public static boolean stayAlive = true;
     private TextView userListDisplay;
+    public static Game game;
+    private Vector<TestPlayerCardFrag> addedFragments = new Vector<>();
 
 
     @Override
@@ -23,8 +28,9 @@ public class Lobby extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lobby);
         userListDisplay = (TextView) findViewById(R.id.activityLobby_UserListDisplay);
-        Game game = new Game(this, LogInFrag.username, LogInFrag.password);
+        game = new Game(this, LogInFrag.username, LogInFrag.password);
         game.start();
+
     }
 
     public void updateUserListDisplay(Vector<User> userList){
@@ -34,9 +40,21 @@ public class Lobby extends Activity {
             userListDisplay.append("\n");
 
         }
-        FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
 
-        fragmentTransaction.commit();
+        FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+        for (int i = 0; i < addedFragments.size(); i ++){
+            fragmentTransaction.remove(addedFragments.get(i));
+        }
+        for (int i2 = 0; i2 < 30; i2++) { //to duplicate a user x times
+            for (int i = 0; i < userList.size(); i++) {
+                TestPlayerCardFrag temp = TestPlayerCardFrag.newInstance(userList.get(i).getUsername(), 20);
+                addedFragments.add(temp);
+                fragmentTransaction.add(R.id.Lobby_FragContainer, temp);
+            }
+        }
+
+
+        fragmentTransaction.commitAllowingStateLoss();
     }
 
     @Override
@@ -55,9 +73,29 @@ public class Lobby extends Activity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_LogOut) {
+            try {
+                Lobby.game.outComms.inComms.interrupt();
+                Lobby.game.outComms.inComms = null;
+                Lobby.game.outComms.interrupt();
+                Lobby.game.outComms = null;
+                Lobby.game.interrupt();
+                Lobby.game = null;
+                this.finish();
+
+
+
+            } catch (Exception e){
+                e.printStackTrace();
+            }
+
             return true;
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onFragmentInteraction(Uri uri) {
+
     }
 }

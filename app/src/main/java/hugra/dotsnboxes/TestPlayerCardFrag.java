@@ -7,6 +7,7 @@ import android.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 
 /**
@@ -20,12 +21,12 @@ import android.view.ViewGroup;
 public class TestPlayerCardFrag extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
+    private static final String ARG_PARAM1 = "username";
+    private static final String ARG_PARAM2 = "gamesWon";
 
     // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
+    private String username;
+    private int gamesWon;
 
     private OnFragmentInteractionListener mListener;
 
@@ -33,16 +34,16 @@ public class TestPlayerCardFrag extends Fragment {
      * Use this factory method to create a new instance of
      * this fragment using the provided parameters.
      *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
+     * @param username Parameter 1.
+     * @param gamesWon Parameter 2.
      * @return A new instance of fragment TestPlayerCardFrag.
      */
     // TODO: Rename and change types and number of parameters
-    public static TestPlayerCardFrag newInstance(String param1, String param2) {
+    public static TestPlayerCardFrag newInstance(String username, int gamesWon) {
         TestPlayerCardFrag fragment = new TestPlayerCardFrag();
         Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
+        args.putString(ARG_PARAM1, username);
+        args.putInt(ARG_PARAM2, gamesWon);
         fragment.setArguments(args);
         return fragment;
     }
@@ -55,8 +56,8 @@ public class TestPlayerCardFrag extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
+            username = getArguments().getString(ARG_PARAM1);
+            gamesWon = getArguments().getInt(ARG_PARAM2);
         }
     }
 
@@ -64,7 +65,11 @@ public class TestPlayerCardFrag extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_test_player_card, container, false);
+
+        View viewToReturn = inflater.inflate(R.layout.fragment_test_player_card, container, false);
+        ((TextView) viewToReturn.findViewById(R.id.PlayerCardFrag_UserNameTextView)).setText(username);
+//        ((TextView) viewToReturn.findViewById(R.id.PlayerCardFrag_GameCountTextView)).setText(gamesWon);
+        return viewToReturn;
     }
 
     // TODO: Rename method, update argument and hook method into UI event

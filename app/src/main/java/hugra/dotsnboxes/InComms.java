@@ -14,9 +14,7 @@ import java.util.Vector;
 import sharedPackages.ActionRequest;
 import sharedPackages.User;
 
-/**
- * Created by graham on 09/08/15.
- */
+
 public class InComms extends Thread {
 
     private Socket scSock;
@@ -25,7 +23,7 @@ public class InComms extends Thread {
     private Lobby activityReference;
     public boolean hasConnected;
 
-    public InComms(Socket socket, Lobby activityReference) throws IOException{
+    public InComms(Socket socket, Lobby activityReference){
         this.scSock = socket;
         this.activityReference = activityReference;
         hasConnected = false;
@@ -36,12 +34,6 @@ public class InComms extends Thread {
     public void run(){
         try {
             final Context context = activityReference.getApplicationContext();
-            activityReference.runOnUiThread(new Runnable() {
-                @Override
-                public void run() {
-                    Toast.makeText(context, "Test toast", Toast.LENGTH_LONG).show();
-                }
-            });
 
             scStream = new ObjectInputStream(scSock.getInputStream());
             ActionRequest actionRequest;
@@ -49,14 +41,16 @@ public class InComms extends Thread {
                 actionRequest = (ActionRequest)scStream.readObject();
                 switch(actionRequest.getAction()){
                     case(ActionRequest.SC_USERLIST):
-                        userList = actionRequest.getUserList();
-                        Log.d("in incomms sc_userlist", "inside the case for sc_userlist");
-                        activityReference.runOnUiThread(new Runnable() {
-                            @Override
-                            public void run() {
-                                activityReference.updateUserListDisplay(userList);
-                            }
-                        });
+                        if (!actionRequest.getUserList().equals(userList)) {
+                            userList = actionRequest.getUserList();
+                            Log.d("in incomms sc_userlist", "inside the case for sc_userlist");
+                            activityReference.runOnUiThread(new Runnable() {
+                                @Override
+                                public void run() {
+                                    activityReference.updateUserListDisplay(userList);
+                                }
+                            });
+                        }
 
                         break;
 
@@ -79,6 +73,22 @@ public class InComms extends Thread {
                             @Override
                             public void run() {
                                 Toast.makeText(context, "Login success!", Toast.LENGTH_LONG).show();
+//                                try {
+//                                    Lobby.game.outComms.interrupt();
+//                                    Lobby.game.outComms = null;
+//                                    Lobby.game.inComms.interrupt();
+//                                    Lobby.game.inComms = null;
+//                                    Lobby.game.interrupt();
+//                                    Lobby.game = null;
+//                                    activityReference.finish();
+//
+//
+//
+//                                } catch (Exception e){
+//                                    e.printStackTrace();
+//                                }
+
+
                             }
                         });
 

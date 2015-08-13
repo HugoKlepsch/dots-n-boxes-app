@@ -7,17 +7,17 @@
     <!-- TODO: Update blank fragment layout -->
 
     <RelativeLayout
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:background="#a9aacd">
+        >
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="Medium Text"
-            android:id="@+id/PlaerCardFrag_UserNameTextView"
+            android:text="@string/PlayerCardFrag_Username"
+            android:id="@+id/PlayerCardFrag_UserNameTextView"
             android:layout_alignParentTop="true"
             android:layout_alignParentStart="true"
             android:layout_marginTop="5dp"
@@ -27,27 +27,27 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="New Text"
+            android:text="@string/PlayerCardFrag_GamesWonCount"
             android:id="@+id/PlayerCardFrag_GameCountTextView"
-            android:layout_below="@+id/PlaerCardFrag_UserNameTextView"
-            android:layout_alignStart="@+id/PlaerCardFrag_UserNameTextView"
+            android:layout_below="@+id/PlayerCardFrag_UserNameTextView"
+            android:layout_alignStart="@+id/PlayerCardFrag_UserNameTextView"
             android:layout_marginBottom="5dp"/>
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="New Button"
-            android:id="@+id/PlayerCardFrag_ProfileButton"
+            android:text="@string/PlayerCardFrag_ChallengeButton"
+            android:id="@+id/PlayerCardFrag_ChallengeButton"
             android:layout_alignParentTop="true"
-            android:layout_toEndOf="@+id/PlaerCardFrag_UserNameTextView"/>
+            android:layout_toStartOf="@+id/PlayerCardFrag_ProfileButton"
+            android:layout_toLeftOf="@+id/PlayerCardFrag_ProfileButton"/>
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="New Button"
-            android:id="@+id/PlayerCardFrag_ChallengeButton"
+            android:text="@string/PlayerCardFrag_ProfileButton"
+            android:id="@+id/PlayerCardFrag_ProfileButton"
             android:layout_alignParentTop="true"
-            android:layout_toEndOf="@+id/PlayerCardFrag_ProfileButton"
-            />
+            android:layout_alignParentEnd="true"/>
     </RelativeLayout>
 </FrameLayout>
